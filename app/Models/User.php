@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Role;
+use App\Models\Sales;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -43,7 +44,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-        
-
+    public function sales(){
+        return $this->hasMany(Sales::class);
+    }
+    public function setPasswordAttribute($value){
+        $this->attributes['password'] = bcrypt($value);
+    }
     
 }

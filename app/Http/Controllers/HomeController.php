@@ -25,12 +25,29 @@ class HomeController extends Controller
         $subCategories = $category->whereNotNull('parent_id');
         $datetimeToday = Carbon::now('Asia/Manila');
 
+        
+
         return view('welcome',compact('property','category','subCategories','datetimeToday'));
+    }
+
+    public function showAllProperties(){
+        return view('all-properties');
     }
 
     public function property(Property $property)
     {   
-        return view('property.show',compact('property'));
+        $shareComponent = \Share::page(
+        $property,
+        'Your share text comes here',
+        )
+        ->facebook()
+        ->twitter()
+        ->linkedin()
+        ->telegram()
+        ->whatsapp()        
+        ->reddit();
+        
+        return view('property.show',compact('property','shareComponent'));
     }
     
 }

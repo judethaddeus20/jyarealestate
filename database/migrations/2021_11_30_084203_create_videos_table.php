@@ -16,7 +16,7 @@ class CreateVideosTable extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('property_id')->constraint("property")->onDelete("cascade");
+            $table->foreignId('property_id')->nullableMorphs()->constrained()->onDelete("cascade");
             $table->timestamps();
         });
     }

@@ -9,8 +9,10 @@
     <div class="container mt-4 pt-4">
       <div class="row">
         <header class="section-header">
+
         </header>
       </div>
+      
       @livewire('properties')
     </div>
   </section>
@@ -115,7 +117,7 @@
               <div class="col-md-6" data-aos="zoom-out" data-aos-delay="200">
                 <div class="feature-box d-flex align-items-center">
                   <i class="bi bi-check"></i>
-                  <h3>3D Walkaround</h3>
+                  <h3>Property Visualization</h3>
                 </div>
               </div>
               <div class="col-md-6" data-aos="zoom-out" data-aos-delay="300">
@@ -133,7 +135,7 @@
               <div class="col-md-6" data-aos="zoom-out" data-aos-delay="500">
                 <div class="feature-box d-flex align-items-center">
                   <i class="bi bi-check"></i>
-                  <h3>Auto Computation</h3>
+                  <h3>Reservations</h3>
                 </div>
               </div>
             </div>

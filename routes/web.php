@@ -28,6 +28,7 @@ Route::get('/',[App\Http\Controllers\HomeController::class,'index'])->name('inde
 
 Route::group(['middleware' => 'web'], function(){
     Route::get('properties/{property}', [App\Http\Controllers\HomeController::class, 'property'])->name('show');
+    Route::get('all-properties', [App\Http\Controllers\HomeController::class, 'showAllProperties'])->name('all');
 
     Route::group([
         'namespace' => 'Client',
@@ -39,6 +40,7 @@ Route::group(['middleware' => 'web'], function(){
 
     
 });
+
 Route::group(['middleware' => 'auth'], function(){
     
     Route::group([
@@ -48,9 +50,12 @@ Route::group(['middleware' => 'auth'], function(){
         'as' => 'admin.',
     ], function(){
         Route::get('/home', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('home');
+        Route::get('property/getCity/{id}', [App\Http\Controllers\Admin\PropertyController::class, 'getCity'])->name('getCity');
+        Route::get('property/getMunicipality/{id}', [App\Http\Controllers\Admin\PropertyController::class, 'getMunicipality'])->name('getMunicipality');
         Route::resource('property','PropertyController');
         Route::resource('sales','SalesController');
         Route::resource('user','UserController');
+        
     });
 
     Route::group([

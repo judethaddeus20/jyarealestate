@@ -14,8 +14,8 @@ class CreateCategoryPropertyTable extends Migration
     public function up()
     {
         Schema::create('category_property', function (Blueprint $table) {
-            $table->foreignId('category_id')->nullableMorphs()->constrained();
-            $table->foreignId('property_id')->nullableMorphs()->constrained();
+            $table->foreignId('category_id')->nullableMorphs()->constrained()->onDelete('cascade');
+            $table->foreignId('property_id')->nullableMorphs()->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

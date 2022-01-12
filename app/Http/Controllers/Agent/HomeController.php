@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Property;
 use Illuminate\Support\Facades\View;
 use App\Models\User;
+use App\Models\Sales;
 class HomeController extends Controller
 {
     /**
@@ -16,11 +17,13 @@ class HomeController extends Controller
      */
     public $properties;
     public $users;
+    public $sales;
     public function __construct()
     {
         $this->properties = Property::all();
         $this->users = User::all();
-        View::share(['properties' => $this->properties, 'users' => $this->users]);
+        $this->sales = Sales::all();
+        View::share(['properties' => $this->properties, 'users' => $this->users, 'sales' => $this->sales]);
     }
     /**
      * Show the application dashboard.

@@ -19,7 +19,7 @@ class AdminAccountSeeder extends Seeder
             'email' => 'admin@admin.app',
             'is_admin' => 1,
             'phone_number' => '09123456789',
-            'password' => Hash::make('admin'),
+            'password' => 'admin',
             'email_verified_at' => now(),
             'created_at' => now(),
             'updated_at' => now(),

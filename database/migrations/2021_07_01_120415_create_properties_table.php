@@ -17,12 +17,16 @@ class CreatePropertiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('price');
-            $table->mediumText('location');
             $table->decimal('latitude', 10, 8);
             $table->decimal('longitude', 11, 8);
             $table->longText('description');
             $table->integer('rooms');
             $table->string('developer');
+            $table->string('location');
+            $table->string('url');
+            $table->unsignedInteger('province')->nullable()->constrained()->onDelete('cascade');
+            $table->unsignedInteger('city')->nullable()->constrained()->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

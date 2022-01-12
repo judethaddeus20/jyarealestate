@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
 use Illuminate\Support\Facades\Hash;
-
+use App\Models\Property;
+use App\Models\User;
+use App\Models\Sales;
 class ProfileController extends Controller
 {
     /**
@@ -15,7 +17,10 @@ class ProfileController extends Controller
      */
     public function edit()
     {
-        return view('profile.edit');
+        $properties = Property::all();
+        $users = User::all();
+        $sales = Sales::all();
+        return view('profile.edit',compact('properties','users','sales'));
     }
 
     /**

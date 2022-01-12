@@ -116,6 +116,27 @@
                             </ul>
                         </div>
                     </li>    
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#sales" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="sales">
+                            <i class="fab fa-laravel""></i>
+                            <span class="nav-link-text">{{ __('Sales') }}</span>
+                        </a>
+
+                        <div class="collapse hide" id="sales">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.sales.index') }}">
+                                        {{ __('Manage Sales') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('admin.sales.create') }}">
+                                        {{ __('Create new Sale') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>    
                 </ul>
             @else
             <ul class="navbar-nav">
@@ -140,6 +161,27 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('agent.property.create') }}">
                                         {{ __('Create New Property') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sales" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="sales">
+                            <i class="fab fa-laravel"></i>
+                            <span class="nav-link-text">{{ __('Sales') }}</span>
+                        </a>
+
+                        <div class="collapse hide" id="sales">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('agent.sales.index') }}">
+                                        {{ __('My Sales') }}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('agent.sales.create') }}">
+                                        {{ __('Create New Sales') }}
                                     </a>
                                 </li>
                             </ul>

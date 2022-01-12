@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>JYA Real Estate Services</title>
+  <title>JYA Real Estate</title>
 
 
   <!-- Favicons -->
@@ -25,12 +25,64 @@
   <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/@fortawesome/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
-
+  <link href="{{ asset('select2') }}/select2.min.css" rel="stylesheet">
+  <link href="{{ asset('css') }}/fancybox.css" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+ 
   @livewireStyles
 </head>
     <body>
-        @yield('content')
+      @yield('content')
+      <script src="{{ asset('assets') }}/vendor/jquery/dist/jquery.min.js"></script>
+      <script src="{{ asset('assets') }}/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+      
+      <script src="{{ asset('assets') }}/vendor/purecounter/purecounter.js"></script>
+      <script src="{{ asset('assets') }}/vendor/aos/aos.js"></script>
+      <script src="{{ asset('assets') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="{{ asset('assets') }}/vendor/glightbox/js/glightbox.min.js"></script>
+      <script src="{{ asset('assets') }}/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+      <script src="{{ asset('assets') }}/vendor/swiper/swiper-bundle.min.js"></script>
+      <script src="{{ asset('js') }}/fancybox.umd.js"></script>
+      @livewireScripts
+      <script>
+        $(document).ready(function(){
+
+        
+          const swiper = new Swiper('.swiper', {  
+          autoplay: {
+            delay: 1750,
+            disableOnInteraction: true
+          },
+          // If we need pagination
+          pagination: {
+              el: '.swiper-pagination',
+              clickable: true
+          },
+
+          // Navigation arrows
+          navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+          },
+          });
+
+          AOS.init({
+            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+            throttleDelay: 99,
+            delay: 0,
+            
+          });
+          AOS.refreshHard();
+        });
+        Fancybox.bind('[data-fancybox="gallery"]', {
+          caption: function (fancybox, carousel, slide) {
+            return (
+              `${slide.index + 1} / ${carousel.slides.length} <br />` + slide.caption
+            );
+          },
+        });
+        
+        </script>
     </body>
 </html>

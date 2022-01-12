@@ -219,7 +219,7 @@ var Charts = (function() {
 					defaultColor: (mode == 'dark') ? colors.gray[700] : colors.gray[600],
 					defaultFontColor: (mode == 'dark') ? colors.gray[700] : colors.gray[600],
 					defaultFontFamily: fonts.base,
-					defaultFontSize: 13,
+					defaultFontSize: 12,
 					layout: {
 						padding: 0
 					},
